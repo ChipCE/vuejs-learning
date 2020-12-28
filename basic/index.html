@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJs learning</title>
+        <link href="style.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+            <p>{{ greet("mother fucker") }}</p>
+            <p>Name : {{ name }}</p>
+            <p>Job : {{ job }}</p>
+            <p>Age : {{ age }}</p>
+            <a v-bind:href="website">homepage</a>
+            <input type="text" v-bind:value="name">
+            <p v-html=websiteTag></p>
+            <p>count = {{count}}</p>
+            <!-- function is called everytime the var value changed. computed property func does not have () at the end -->
+            <p>count * 10 = {{tenTimes}}</p>
+            <button v-on:click.once="count++">+</button><button @click="count--">-</button>
+            <button v-on:click="add">+F</button><button v-on:dblclick="sub(10)">-F</button>
+            <div id="canvas" v-on:mousemove="updateXY">{{x}},{{y}}</div>
+            <a v-on:click.prevent="overdriveClick" href="http://snakeoildev.com">event modifier link</a>
+            
+            <!-- key event and bind to vue model variable -->
+            <label>Name:</label>
+            <input type="text" v-on:keyup.enter="logName" v-model="name" />
+            <label>{{name}} age:</label>
+            <input type="text" v-on:keyup.enter.alt="logAge" v-model="age" /><br />
+
+            <!-- enable class availabe if the data model availabe is true -->
+            <h1>class example 1</h1>
+            <div v-bind:class="{available:available}" v-on:click="available = !available">
+                <span>yoyo</span>
+            </div>
+
+            <h1>class example 2</h1>
+            <div v-bind:class="compClasses" v-on:click="available = !available">
+                <span>yoyo</span>
+            </div>
+            <button v-on:click="nearby = !nearby">Toggle nearby</button><button v-on:click="available = !available">Toggle available</button>
+
+
+            <h1>Condition</h1>
+            <!-- v-if will take the element out of the DOM -->
+            <button v-on:click="error = !error">Toggle Error</button>
+            <button v-on:click="success = !success">Toggle success</button>
+            <p v-if="error">ERRORRRR</p>
+            <p v-else-if="success">SUCCESSSS</p>
+
+            <h1>v-show</h1>
+            <!-- v-show:false only hide the element -->
+            <p v-show="error">ERRORRRR</p>
+            <p v-show="success">SUCCESSSS</p>
+
+            <h1>v-for</h1>
+            <p> single {{characters[0]}}</p>
+
+            <ul>
+                <li v-for="character in characters">{{character}}</li>
+            </ul>
+
+            <ul>
+                <li v-for="(ninja,index) in ninjas">{{index}}.{{ninja.name}},{{ninja.age}}</li>
+            </ul>
+
+            <div v-for="(ninja, index) in ninjas">
+                <p>{{ index }} . {{ ninja.name }}</p>
+                <p>Age - {{ ninja.age }}</p>
+            </div>
+
+            <!-- template will not display the parent tag -->
+            <template v-for="(ninja, index) in ninjas">
+                <p>{{ index }} . {{ ninja.name }}</p>
+                <p>Age - {{ ninja.age }}</p>
+            </template>
+
+            <template v-for="(ninja, index) in ninjas">
+                <div v-for="(val,key) in ninja">
+                    <p>{{key}},{{val}}</p>
+                </div>
+            </template>
+
+        </div>
+
+
+
+        <script src="app.js"></script>
+    </body>
+</html>
