@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJs learning</title>
+        <link href="style.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+            <h1>{{ greet("Mr.") }}</h1>
+            <p>job : {{ job }}</p>
+            <!-- 
+                <a href="{{ website }}">site</a> 
+                template cannot be rendered inside string, use binding instead
+                bind data without {{ }} and inside ""-->
+            <a v-bind:href="website">website</a>
+            <br>
+            <!-- bind to input, one way -->
+            <input type="text" v-bind:value="name" />
+            <br>
+            <!-- bind to input, one way, this will not change the data is background -->
+            <input type="text" v-bind:value="age" />
+            <br>
+            <!-- output html tag -->
+            <p v-html="webTag"></p>
+            <br>
+            <!-- direct access to data -->
+            <p> age {{age}}</p>
+            <button v-on:click="age--">-</button>
+            <button @click="age++">+</button>
+            <br>
+            <!-- via function -->
+            <button v-on:dblclick="sub">f-</button>
+            <button @dblclick="add">f+</button>
+            <button v-on:dblclick="subNum(10)">f-10 doubleClick</button>
+            <button @dblclick="addNum(10)">f+10 doubleClick</button>
+            <button v-on:click.once="addNum(10)">add once</button>
+            <a v-on:click.prevent="click" href="https://google.com">google link overdrive</a>
+            <br>
+            <!-- <div id="canvas" v-on:mousemove="updatePos">
+                {{x}},{{y}}
+            </div> -->
+            <br>
+            <p>name</p>
+            <input type="text" v-on:keyup.enter.ctrl="logName"/>
+            <!-- 2 ways data binding -->
+            <p>age</p>
+            <input type="text" v-model="age" v-on:keyup.enter="logAge"/>
+            <span>{{age}}</span>
+            <!--  compute, only run when the data changed -->
+            <p>Age+10 = {{addTenAge}}</p>
+
+            <!-- bind css class, {key , value}, key only apply when true-->
+            <div v-bind:class="{red:enableRed,blue:age%2==0}" v-on:click="enableRed = !enableRed">
+                <span>test class</span>
+            </div>
+
+            <!-- or bind class to computed function -->
+            <div v-bind:class="compClass">
+                <span>test comp class</span>
+            </div>
+
+
+        </div>
+
+
+
+
+        <script src="app.js"></script>
+    </body>
+</html>
