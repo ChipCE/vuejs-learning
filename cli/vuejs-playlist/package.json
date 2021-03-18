@@ -1,8 +1,8 @@
 {
-  "name": "prjtest",
+  "name": "vuejs-playlist",
   "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "ChipCE <login721@gmail.com>",
+  "author": "Chip <login721@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {

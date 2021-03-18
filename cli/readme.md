@@ -1,4 +1,6 @@
 <pre>
+sudo npm install -g vue-cli
+
 vue init <template-name> <project-name>
 vue init webpack-simple prjTest
 

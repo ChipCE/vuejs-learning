@@ -1,9 +1,11 @@
 // data must be a funtion return its data obj, or the data will be shared 
+// syntax name,object
 Vue.component("greeting",{
     template : '<p>this is component {{name}}. <button v-on:click="changeName">change name</button></p>',
+    // for component, data must be a function return object
     data : function(){
         return {
-            name: "compo-name"
+            name: "compo-default-name"
         }
     },
     methods:{

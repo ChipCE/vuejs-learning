@@ -10,7 +10,15 @@ new Vue({
         age : 99,
         x:0,
         y:0,
-        enableRed: true
+        enableRed: true,
+        error : false,
+        success : false,
+        machine : [
+            {name:"hevort",type:"corexy"},
+            {name:"bear",type:"bed-slinger"},
+            {name:"voron0",type:"corexy"}
+        ],
+        arr:[1,3,5,7,9]
     },
     //function
     methods: {

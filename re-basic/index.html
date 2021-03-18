@@ -60,6 +60,33 @@
                 <span>test comp class</span>
             </div>
 
+            <!-- condition and show -->
+            <button v-on:click="error = !error">Toggle error</button>
+            <button v-on:click="success = !success">Toggle success</button>
+            <!-- IF will take the element out of the DOM when false -->
+            <p v-if="error">test if : error</p>
+            <p v-else-if="success">test if : success</p>
+            <!-- show only hide that element -->
+            <p v-show="error">Showing error</p>
+            <p v-show="success">Showing success</p>
+
+            <!-- loop -->
+            <ul>
+                <li v-for="i in arr">{{i}}</li>
+            </ul>
+            <ul>
+                <li v-for="(printer,index) in machine">#{{index}} : {{printer.name}} is {{printer.type}}</li>
+            </ul>
+
+            <!--  template is a special tag that will not render -->
+            <template v-for="(printer,index) in machine">#{{index}} : {{printer.name}} is {{printer.type}}</template>
+
+            <template v-for="printer in machine">
+                <div v-for="(val,key) in printer">
+                    <p>{{key}} = {{val}}</p>
+                </div>
+            </template>
+
 
         </div>
 
