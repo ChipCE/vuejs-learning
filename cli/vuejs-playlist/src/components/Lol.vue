@@ -29,6 +29,26 @@ export default {
       this.machines.pop();
     },
   },
+  beforeCreate() {
+    alert("before create");
+  },
+  created() {
+    alert("created");
+    // fetch data here
+  },
+  beforeMount() {
+    alert("before mount");
+  },
+  mounted() {
+    alert("mounted");
+    // do somethign with the DOM here
+  },
+  beforeUpdate() {
+    alert("beforeUpdate");
+  },
+  updated() {
+    alert("updated");
+  },
 };
 </script>
 
